@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Friends List</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+            <ion-item class="item-remove-animate item-icon-right"  *ngFor="let friend of friends"  (click)="onSelect($event, friend)">
+                <h2>{{friend.name}}</h2>
+                <p>{{friend.phone}}</p>
+                <i class="icon ion-arrow-right-b"></i>
+                <button (click)="gotoDetail(friend)" class="button-assertive">Detail</button>
+                <button (click)="delete(friend)" class="button-assertive">Delete</button>
+            </ion-item>
+        </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>
